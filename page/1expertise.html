@@ -1,0 +1,25 @@
+---
+layout: page
+title: Expertise
+permalink: /expertise/
+icon: th-list
+type: page
+---
+
+<ul>
+    {% for category in site.categories %}
+    <h2 id="{{category | first}}">{{category | first}}</h2>
+        {% for posts in category  %}
+            {% for post in posts %}
+                {% if post.url %}
+                <li style="list-style:none;" >
+                    {% include tag.html %}
+                    {{  post.content }}
+                    <hr style="margin: -10px 0px 0px 0px;padding-bottom: 5px;" />
+                </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+</ul>
+   

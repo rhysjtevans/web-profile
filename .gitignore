@@ -1,0 +1,9 @@
+_site
+.sass-cache
+.jekyll-metadata
+.jekyll-cache
+.vscode
+.idea
+.DS_Store
+apply.ps1
+*.docx

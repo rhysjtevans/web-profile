@@ -1,0 +1,43 @@
+<header id="top">
+    <div class="wrapper">
+        <a href="https://www.linkedin.com/in/rhysjtevans"><i class="fa fa-linkedin"></i> {{ site.title }}</a>
+        <a href="tel:+447805595190"><i class="fa fa-phone"> +44 (0) 7805595190</i></a>
+        <a href="mailto:work@rhysevans.co.uk?subject=Hire the best&body=Hi Rhys, <br/>Saw your profile and thought you'd be a great fit for a role I have."><i class="fa fa-envelope"> rhys@rhysevans.co.uk</i></a>
+        
+        
+        <small>{{site.brief-intro}}</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    {% if page.url == '/' %}
+                    <a class="active" href="{{site.baseurl}}/">
+                        {% else %}
+                    <a href="{{site.baseurl}}/">
+                    {% endif %}
+                        <i class="fa fa-home"></i>About
+                    </a>
+                </li>
+                
+                {% for my_page in site.pages %}
+                {% if my_page.type == 'page' %}
+                <li>
+                    {% if my_page.url == page.url %}
+                    <a class="active" href="{{ my_page.url | prepend: site.baseurl }}">
+                        {% else %}
+                        <a href="{{ my_page.url | prepend: site.baseurl }}">
+                        {% endif %}
+                        <i class="fa fa-{{my_page.icon}}"></i>{{ my_page.title }}
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                <li>
+                    <a href="/extra/rhys-evans-cv.pdf" target="_blank">
+                        <i class="fa fa-cloud-download"></i>CV Download
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

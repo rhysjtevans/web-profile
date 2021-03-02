@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<div class="page clearfix" post>
+    <div class="left">
+        {% if page.title %}
+        <h1>{{page.title}}</h1>
+        <hr>
+        {% endif %}
+        {{content}}
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side">
+                <div>
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                    Contact Details
+                </div>
+                
+                  <a href="/extra/rhysevans.vcard">
+                    <img src="/extra/qr-vcard.png" width="256" alt="business contact details vcard qr code" />
+                    <center><i>click to download vcard <br />or scan with phone</i></center>
+                  </a>
+              </div>
+              <p></p>
+            <div class="side">
+                <div>
+                    Expertise
+                </div>
+                <ul id="content-side" class="content-ul">
+                    {% for category in site.categories%}
+                        <li>
+                            <a data-scroll href="/expertise#{{ category | first }}">
+                                {{ category | first }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% capture tags %}
+                {% for tag in site.tags %}
+                    {{ tag[0] }}
+                {% endfor %}
+            {% endcapture %}
+            {% assign sortedtags = tags | split:' ' | sort %}
+            <p></p>
+            <div class="side">
+                <div>
+                    Tags
+                </div>
+                <ul id="content-side" class="content-ul">
+                    {% for tag in sortedtags %}
+                    <li style="word-break: break-all; float:left;margin-left:20px;padding-right:5px">
+                        <a data-scroll href="/tag#{{ tag }}">
+                            {{ tag }}
+                        </a>
+                    </li>
+                    {% endfor %}
+            
+                </ul>
+            </div>
+            <p></p>
+
+
+        </div>
+    </div>
+</div>
+<script src="{{ "/js/pageContent.js " | prepend: site.baseurl }}" charset="utf-8"></script>
